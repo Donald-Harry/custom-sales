@@ -14,9 +14,9 @@
       <div class="col-md-4 offset-md-2 d-flex">
         <i class="bi bi-envelope"></i>
         <div>
-          <h3>The .gov means it’s official.</h3>
+          <h3>The .gov means it&apos;s official.</h3>
           <p>Federal government websites often end in .gov or .mil. Before sharing sensitive information, make
-            sure you’re on a federal government site.</p>
+            sure you&apos;re on a federal government site.</p>
         </div>
       </div>
       <div class="col-md-3 d-flex">

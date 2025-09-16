@@ -7,8 +7,9 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public $info = [
-        'site_name' => 'new site',
+        'site_name' => 'GSA Autions',
         'site_number' => '898989808',
+        'site_email' => 'support@gsaautions.com',
 
     ];
     public function index(){
@@ -18,7 +19,7 @@ class HomeController extends Controller
     }
 
     public function about(){
-        return view('about');
+        return view('about', ['info' => $this->info]);
     }
 
     

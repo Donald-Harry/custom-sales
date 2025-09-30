@@ -26,4 +26,7 @@ class HomeController extends Controller
         return view('login', ['info' => $this->info]);
     }
     
+    public function register(){
+        return view('register', ['info' => $this->info]);
+    }
 }

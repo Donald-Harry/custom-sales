@@ -10,3 +10,4 @@ Route::get('/', function () {
 Route::get('/', [HomeController::class, 'index'])->name('index.page');
 Route::get('/about', [HomeController::class, 'about'])->name('about.page');
 Route::get('/login', [HomeController::class, 'login'])->name('login.page');
+Route::get('/register', [HomeController::class, 'register'])->name('register.page');

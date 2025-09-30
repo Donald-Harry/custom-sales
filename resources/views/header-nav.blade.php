@@ -62,7 +62,7 @@
           </a>
         </li>
         <li>
-          <a href="" class="d-block fs-6">
+          <a href="{{ route('register.page')}}" class="d-block fs-6">
             <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512" role="img"
               aria-hidden="true" aria-label="register" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
               <path

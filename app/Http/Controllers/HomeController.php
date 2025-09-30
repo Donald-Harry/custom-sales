@@ -21,6 +21,9 @@ class HomeController extends Controller
     public function about(){
         return view('about', ['info' => $this->info]);
     }
-
+    
+    public function login(){
+        return view('login', ['info' => $this->info]);
+    }
     
 }

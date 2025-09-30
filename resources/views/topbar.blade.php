@@ -1,11 +1,11 @@
-<div class="topbar align-items-center dark-background py-3" style="height: fit-content">
+<div class="topbar align-items-center dark-background py-1" style="height: fit-content">
   <div class="container d-flex justify-content-center justify-content-md-between">
     <div class="contact-info d-flex align-items-center">
       <i class=""></i>
       <p class="mb-2 fs-6">An official website of the United States government</p>
 
       <a class="text-primary mb-2 fs-6 ms-2" onclick="togglebar()" href="javascript:void(0)" role="button">
-        <u>Here is what you need to know <i class="bi bi-arrow-down-short"></i></u>
+        <u>Here is what you need to know <i class="bi bi-arrow-down-short text-primary"></i></u>
       </a>
     </div>
   </div>

@@ -29,4 +29,8 @@ class HomeController extends Controller
     public function register(){
         return view('register', ['info' => $this->info]);
     }
+
+    public function bidder_registration(){
+        return view('bidder-registration', ['info' => $this->info]);
+    }
 }

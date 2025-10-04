@@ -25,6 +25,11 @@
     <link href="{{ asset('home_assets/assets/vendor/aos/aos.css')}}" rel="stylesheet">
     <link href="{{ asset('home_assets/assets/assets/vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
     <link href="{{ asset('home_assets/assets/assets/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('home_assets/iziToast-master/dist/css/iziToast.css')}}" rel="stylesheet">
+    <link href="{{ asset('home_assets/iziToast-master/dist/css/iziToast.min.css')}}" rel="stylesheet">
+    <script src="{{ asset('home_assets/iziToast-master/dist/js/iziToast.js')}}"></script>
+    <script src="{{ asset('home_assets/iziToast-master/dist/js/iziToast.min.js')}}"></script>
+    
 
     <!-- Main CSS File -->
     <link href="{{ asset('home_assets/assets/css/main.css')}}" rel="stylesheet">

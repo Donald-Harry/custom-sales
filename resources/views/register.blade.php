@@ -11,20 +11,29 @@
                 <a href="">Login Information</a>
             </div>
             <div class="col-md-9">
-                <form action="" method="post" class="">
+                <form action="{{ route('register.form')}}" method="post" class="">
+                    @csrf
                     <div class="row border rounded shadow">
                         <div class="col-12 align-items-center p-5">
 
                             <div class="form-input-group mb-4">
                                 <h3>Registration Type</h3>
                                 <div class="form-check">
+                                    @error('type')
+                                        <script>
+                                            iziToast.error({
+                                                title: 'Error',
+                                                message: '{{ $message }}',
+                                                position: 'topRight'
+                                            });
+                                        </script>
+                                    @enderror
                                     <input class="form-check-input p-2 rounded" type="radio" name="type" id="individual"
                                         value="individual">
                                     <label class="form-check-label fs-5 ms-2" for="individual">
                                         Individual
                                     </label>
                                 </div>
-
                                 <div class="form-check mt-1">
                                     <input class="form-check-input p-2 rounded" type="radio" name="type" id="company"
                                         value="company">
@@ -35,19 +44,48 @@
 
                             </div>
                             <div class="form-input-group mb-4 w-50">
+                                @error('username')
+                                    <script>
+                                        iziToast.error({
+                                            title: 'Error',
+                                            message: '{{ $message }}',
+                                            position: 'topRight'
+                                        });
+                                    </script>
+                                @enderror
                                 <label for="form-label fw-bold text-black">User Name</label>
                                 <input type="text" name="username" class="form-control" id="username"
-                                    placeholder="Enter a username">
+                                    placeholder="Enter a username" value="{{ old('username') }}">
                                 <span class="text-muted">Limit: 15 Character</span>
                             </div>
                             <div class="form-input-group mb-4 w-75">
+                                @error('securityquestion')
+                                    <script>
+                                        iziToast.error({
+                                            title: 'Error',
+                                            message: '{{ $message }}',
+                                            position: 'topRight'
+                                        });
+                                    </script>
+                                @enderror
                                 <label for="form-label fw-bold text-black">Security Question</label>
-                                <input type="text" name="securityquestion" class="form-control" id="securityquestion">
+                                <input type="text" name="securityquestion" class="form-control" id="securityquestion"
+                                    value="{{ old('securityquestion') }}">
                                 <span class="text-muted">Security Questions must be at least 7 characters long.</span>
                             </div>
                             <div class="form-input-group mb-4 w-75">
+                                @error('securityanswer')
+                                    <script>
+                                        iziToast.error({
+                                            title: 'Error',
+                                            message: '{{ $message }}',
+                                            position: 'topRight'
+                                        });
+                                    </script>
+                                @enderror
                                 <label for="form-label fw-bold text-black">Answer</label>
-                                <input type="text" name="securityanswer" class="form-control" id="securityanswer">
+                                <input type="text" name="securityanswer" class="form-control" id="securityanswer"
+                                    value="{{ old('securityanswer') }}">
                                 <span class="text-muted">Answers must be at least 5 characters and cannot be same as
                                     security question.</span>
                             </div>
@@ -116,9 +154,19 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-4">
+                                                @error('firstname')
+                                                    <script>
+                                                        iziToast.error({
+                                                            title: 'Error',
+                                                            message: '{{ $message }}',
+                                                            position: 'topRight'
+                                                        });
+                                                    </script>
+                                                @enderror
                                                 <div class="form-input-group mb-4">
                                                     <label for="form-label fw-bold text-black">First Name</label>
-                                                    <input type="text" name="firstname" class="form-control" id="firstname">
+                                                    <input type="text" name="firstname" class="form-control" id="firstname"
+                                                        value="{{ old('firstname') }}">
 
                                                 </div>
                                             </div>
@@ -130,26 +178,55 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
+                                                @error('lastname')
+                                                    <script>
+                                                        iziToast.error({
+                                                            title: 'Error',
+                                                            message: '{{ $message }}',
+                                                            position: 'topRight'
+                                                        });
+                                                    </script>
+                                                @enderror
                                                 <div class="form-input-group mb-4">
                                                     <label for="form-label fw-bold text-black">Last Name</label>
-                                                    <input type="text" name="lastname" class="form-control" id="lastname">
+                                                    <input type="text" name="lastname" class="form-control" id="lastname"
+                                                        value="{{ old('lastname') }}">
 
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
+                                                @error('email')
+                                                    <script>
+                                                        iziToast.error({
+                                                            title: 'Error',
+                                                            message: '{{ $message }}',
+                                                            position: 'topRight'
+                                                        });
+                                                    </script>
+                                                @enderror
                                                 <div class="form-input-group mb-4">
                                                     <label for="form-label fw-bold text-black">Email Address</label>
-                                                    <input type="text" name="email" class="form-control" id="email">
+                                                    <input type="text" name="email" class="form-control" id="email"
+                                                        value="{{ old('email') }}">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-input-group mb-4">
                                                     <label for="form-label fw-bold text-black">Confirm Email Address</label>
-                                                    <input type="text" name="confirmemail" class="form-control"
+                                                    <input type="text" name="email_confirmation" class="form-control"
                                                         id="confirmemail">
                                                 </div>
                                             </div>
                                             <div class="col-md-2">
+                                                @error('date')
+                                                    <script>
+                                                        iziToast.error({
+                                                            title: 'Error',
+                                                            message: '{{ $message }}',
+                                                            position: 'topRight'
+                                                        });
+                                                    </script>
+                                                @enderror
                                                 <div class="form-input-group mb-4">
                                                     <label for="form-label fw-bold text-black">Date of Birth</label>
                                                     <input type="date" name="date" class="form-control" id="date">
@@ -159,6 +236,15 @@
 
                                                 <div class="col-md-3">
                                                     <div class="form-input-group mb-4">
+                                                        @error('citizen')
+                                                            <script>
+                                                                iziToast.error({
+                                                                    title: 'Error',
+                                                                    message: '{{ $message }}',
+                                                                    position: 'topRight'
+                                                                });
+                                                            </script>
+                                                        @enderror
                                                         <label for="form-label fw-bold text-black">Are you a citizen of the
                                                             United State of America?</label>
                                                         <div>
@@ -181,6 +267,15 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-input-group mb-4">
+                                                        @error('country')
+                                                            <script>
+                                                                iziToast.error({
+                                                                    title: 'Error',
+                                                                    message: '{{ $message }}',
+                                                                    position: 'topRight'
+                                                                });
+                                                            </script>
+                                                        @enderror
                                                         <label for="form-label fw-bold text-black">Country of Residence
                                                             Address</label>
                                                         <select name="country" class="form-control" id="">
@@ -191,10 +286,19 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-input-group mb-4">
+                                                    @error('socialsecuritynumber')
+                                                        <script>
+                                                            iziToast.error({
+                                                                title: 'Error',
+                                                                message: '{{ $message }}',
+                                                                position: 'topRight'
+                                                            });
+                                                        </script>
+                                                    @enderror
                                                     <label for="form-label fw-bold text-black">Social Security
                                                         Number</label>
                                                     <input type="text" name="socialsecuritynumber" class="form-control"
-                                                        id="socialsecuritynumber">
+                                                        id="socialsecuritynumber" value="{{ old('socialsecuritynumber') }}">
                                                     <span class="text-muted">Social security number must be 9 digits</span>
                                                 </div>
                                             </div>
@@ -202,7 +306,7 @@
                                                 <div class="form-input-group mb-4">
                                                     <label for="form-label fw-bold text-black">Confirm Social Security
                                                         Number</label>
-                                                    <input type="text" name="confirmsocialsecuritynumber"
+                                                    <input type="text" name="socialsecuritynumber_confirmation"
                                                         class="form-control" id="confirmesocialsecuritynumber">
                                                 </div>
                                             </div>
@@ -235,6 +339,15 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-input-group mb-4">
+                                                    @error('mailbox')
+                                                        <script>
+                                                            iziToast.error({
+                                                                title: 'Error',
+                                                                message: '{{ $message }}',
+                                                                position: 'topRight'
+                                                            });
+                                                        </script>
+                                                    @enderror
                                                     <label for="form-label fw-bold text-black">Is your primary/mailing
                                                         address a PO Box or Personal MailBox?</label>
                                                     <div>
@@ -258,9 +371,18 @@
                                             <div>
                                                 <div class="col-md-6">
                                                     <div class="form-input-group mb-4">
+                                                        @error('address1')
+                                                            <script>
+                                                                iziToast.error({
+                                                                    title: 'Error',
+                                                                    message: '{{ $message }}',
+                                                                    position: 'topRight'
+                                                                });
+                                                            </script>
+                                                        @enderror
                                                         <label for="form-label fw-bold text-black">Address Line 1</label>
                                                         <input type="text" name="address1" class="form-control"
-                                                            id="address1">
+                                                            id="address1" value="{{ old('address1') }}">
 
                                                     </div>
                                                 </div>
@@ -288,21 +410,51 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-input-group mb-4">
+                                                    @error('city')
+                                                        <script>
+                                                            iziToast.error({
+                                                                title: 'Error',
+                                                                message: '{{ $message }}',
+                                                                position: 'topRight'
+                                                            });
+                                                        </script>
+                                                    @enderror
                                                     <label for="form-label fw-bold text-black">City</label>
-                                                    <input type="text" name="city" class="form-control" id="city">
+                                                    <input type="text" name="city" class="form-control" id="city"
+                                                        value="{{ old('city') }}">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-input-group mb-4">
+                                                    @error('state')
+                                                        <script>
+                                                            iziToast.error({
+                                                                title: 'Error',
+                                                                message: '{{ $message }}',
+                                                                position: 'topRight'
+                                                            });
+                                                        </script>
+                                                    @enderror
                                                     <label for="form-label fw-bold text-black">State</label>
-                                                    <input type="text" name="state" class="form-control" id="state">
+                                                    <input type="text" name="state" class="form-control" id="state"
+                                                        value="{{ old('state') }}">
 
                                                 </div>
                                             </div>
                                             <div class="col-6 col-md-2">
                                                 <div class="form-input-group mb-4">
+                                                    @error('zipcode')
+                                                        <script>
+                                                            iziToast.error({
+                                                                title: 'Error',
+                                                                message: '{{ $message }}',
+                                                                position: 'topRight'
+                                                            });
+                                                        </script>
+                                                    @enderror
                                                     <label for="form-label fw-bold text-black">Zip Code</label>
-                                                    <input type="text" name="zipcode" class="form-control" id="zipcode">
+                                                    <input type="text" name="zipcode" class="form-control" id="zipcode"
+                                                        value="{{ old('zipcode') }}">
                                                 </div>
                                             </div>
                                             <div class="col-6 col-md-2">
@@ -312,9 +464,6 @@
                                                         id="zipcodeext">
                                                 </div>
                                             </div>
-
-
-
                                         </div>
                                     </div>
                                 </div>
@@ -340,50 +489,64 @@
                                     data-parent="#accordion">
                                     <div class="card-body">
                                         <div class="row">
-                                            
-                                                <div class="col-md-7">
-                                                    <div class="form-input-group mb-4">
-                                                        <label for="form-label fw-bold text-black">Daytime Phone</label>
-                                                        <input type="text" name="daytimephone" class="form-control"
-                                                            id="daytimephone">
-                                                        <span class="text-muted">Limit: 10 digits</span>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="form-input-group mb-4">
-                                                        <label for="form-label fw-bold text-black">Phone Ext:
-                                                            (optional)</label>
-                                                        <input type="text" name="daytimephoneext" class="form-control"
-                                                            id="daytimephone">
-                                                        <span class="text-muted">Limit: 7 digits</span>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-7">
-                                                    <div class="form-input-group mb-4">
-                                                        <label for="form-label fw-bold text-black">Eveningtime Phone</label>
-                                                        <input type="text" name="eveningtimephone" class="form-control"
-                                                            id="daytimephone">
-                                                        <span class="text-muted">Limit: 10 digits</span>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="form-input-group mb-4">
-                                                        <label for="form-label fw-bold text-black">Phone Ext:
-                                                            (optional)</label>
-                                                        <input type="text" name="eveningtimephoneext" class="form-control"
-                                                            id="daytimephone">
-                                                        <span class="text-muted">Limit: 7 digits</span>
-                                                    </div>
-                                                </div>
-                                        
 
-
-
+                                            <div class="col-md-7">
+                                                <div class="form-input-group mb-4">
+                                                    @error('daytimephone')
+                                                        <script>
+                                                            iziToast.error({
+                                                                title: 'Error',
+                                                                message: '{{ $message }}',
+                                                                position: 'topRight'
+                                                            });
+                                                        </script>
+                                                    @enderror
+                                                    <label for="form-label fw-bold text-black">Daytime Phone</label>
+                                                    <input type="text" name="daytimephone" class="form-control"
+                                                        id="daytimephone" value="{{ old('daytimephone') }}">
+                                                    <span class="text-muted">Limit: 10 digits</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-input-group mb-4">
+                                                    <label for="form-label fw-bold text-black">Phone Ext:
+                                                        (optional)</label>
+                                                    <input type="text" name="daytimephoneext" class="form-control"
+                                                        id="daytimephone">
+                                                    <span class="text-muted">Limit: 7 digits</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <div class="form-input-group mb-4">
+                                                    @error('eveningtimephone')
+                                                        <script>
+                                                            iziToast.error({
+                                                                title: 'Error',
+                                                                message: '{{ $message }}',
+                                                                position: 'topRight'
+                                                            });
+                                                        </script>
+                                                    @enderror
+                                                    <label for="form-label fw-bold text-black">Eveningtime Phone</label>
+                                                    <input type="text" name="eveningtimephone" class="form-control"
+                                                        id="daytimephone" value="{{ old('eveningtimephone') }}">
+                                                    <span class="text-muted">Limit: 10 digits</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-input-group mb-4">
+                                                    <label for="form-label fw-bold text-black">Phone Ext:
+                                                        (optional)</label>
+                                                    <input type="text" name="eveningtimephoneext" class="form-control"
+                                                        id="daytimephone">
+                                                    <span class="text-muted">Limit: 7 digits</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
 
                     </div>
@@ -406,7 +569,7 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-input-group mb-4">
-                                                    
+
                                                     <div>
                                                         <div class="form-check">
                                                             <input class="form-check-input p-2 rounded" type="radio"
@@ -425,10 +588,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                           
-
-
-
                                         </div>
                                     </div>
                                 </div>
@@ -438,12 +597,12 @@
 
                     </div>
 
-                        <div class="mt-2">
-                            <button class="btn btn-secondary text-white border border-3 px-5 py-3 shadow text-bold mb-4"
-                                disabled id="submitBtn" type="submit">Submit</button>
-                            <button
-                                class="btn btn-primary text-white border  border-3 px-5 py-3 shadow text-bold mb-4">Cancel</button>
-                        </div>
+                    <div class="mt-2">
+                        <button class="btn btn-secondary text-white border border-3 px-5 py-3 shadow text-bold mb-4"
+                            disabled id="submitBtn" type="submit">Submit</button>
+                        <button
+                            class="btn btn-primary text-white border  border-3 px-5 py-3 shadow text-bold mb-4">Cancel</button>
+                    </div>
                 </form>
 
             </div>
@@ -451,8 +610,6 @@
 
     </div>
     <script>
-        // Correctly target by ID
-
         const username = document.getElementById("username");
         const security = document.getElementById("securityquestion");
         const answer = document.getElementById("securityanswer");
@@ -469,7 +626,7 @@
             const accountType = document.querySelector('input[name="type"]:checked');
             // alert(accountType.value);
             if (
-                accountType.value.trim() !== "" &&
+                // accountType.value.trim() !== "" &&
                 username.value.trim() !== "" &&
                 security.value.trim() !== "" &&
                 answer.value.trim() !== ""
@@ -483,6 +640,7 @@
                 confirmBtn.classList.add('bg-secondary');
             }
         }
+        window.addEventListener("DOMContentLoaded", checkForm);
 
         // Attach events
 
@@ -501,5 +659,9 @@
             submitBtn.classList.add('btn-primary');
             submitBtn.classList.remove('btn-secondary');
         });
+        document.getElementById('username').addEventListener('input', function (e) {
+            this.value = this.value.replace(/\s/g, '');
+        });
     </script>
+
 @endsection
